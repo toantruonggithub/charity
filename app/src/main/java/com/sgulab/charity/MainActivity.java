@@ -1,15 +1,24 @@
 package com.sgulab.charity;
 
-import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
+
+import com.sgulab.charity.adapter.TabsAdapter;
+import com.sgulab.charity.fragment.FragmentA;
+import com.sgulab.charity.fragment.FragmentB;
+import com.sgulab.charity.fragment.FragmentC;
+import com.sgulab.charity.fragment.FragmentD;
+import com.sgulab.charity.fragment.FragmentE;
 
 public class MainActivity extends AppCompatActivity {
+
+    private ViewPager viewPager;
+    private TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +30,12 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         toolbar.setLogo(R.drawable.app_icon);
+
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        setupViewPager(viewPager);
+
+        tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(viewPager);
     }
 
     @Override
@@ -38,5 +53,15 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void setupViewPager(ViewPager viewPager) {
+        TabsAdapter adapter = new TabsAdapter(getSupportFragmentManager());
+        adapter.addFrag(new FragmentA(), "FragmentA");
+        adapter.addFrag(new FragmentB(), "FragmentB");
+        adapter.addFrag(new FragmentC(), "FragmentC");
+        adapter.addFrag(new FragmentD(), "FragmentD");
+        adapter.addFrag(new FragmentE(), "FragmentE");
+        viewPager.setAdapter(adapter);
     }
 }
