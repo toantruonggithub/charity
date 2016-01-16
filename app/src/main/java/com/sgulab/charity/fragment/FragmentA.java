@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 
 import com.sgulab.charity.R;
 
-public class FragmentA extends Fragment {
+public class FragmentA extends BaseFragment {
 
     public FragmentA() {
         // Required empty public constructor
