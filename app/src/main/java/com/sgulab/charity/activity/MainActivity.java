@@ -21,6 +21,14 @@ public class MainActivity extends BaseActivity {
     private ViewPager viewPager;
     private TabLayout tabLayout;
 
+    private int[] tabIcons = {
+            android.R.drawable.ic_menu_add,
+            android.R.drawable.ic_menu_agenda,
+            android.R.drawable.ic_menu_call,
+            android.R.drawable.ic_menu_gallery,
+            android.R.drawable.ic_menu_view,
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +45,15 @@ public class MainActivity extends BaseActivity {
 
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
+        setupTabIcons();
+    }
+
+    private void setupTabIcons() {
+        tabLayout.getTabAt(0).setIcon(tabIcons[0]);
+        tabLayout.getTabAt(1).setIcon(tabIcons[1]);
+        tabLayout.getTabAt(2).setIcon(tabIcons[2]);
+        tabLayout.getTabAt(3).setIcon(tabIcons[3]);
+        tabLayout.getTabAt(4).setIcon(tabIcons[4]);
     }
 
     @Override
@@ -60,8 +77,9 @@ public class MainActivity extends BaseActivity {
         TabsAdapter adapter = new TabsAdapter(getSupportFragmentManager());
         adapter.addFrag(new FragmentA(), "Bài đăng mới");
         adapter.addFrag(new FragmentB(), "Bài đăng được quan tâm");
-        adapter.addFrag(new FragmentC(), "Tin tức khác");
+        adapter.addFrag(new FragmentC(), "Nhà tài trợ");
         adapter.addFrag(new FragmentD(), "Thông tin");
+        adapter.addFrag(new FragmentD(), "Cài đặt");
         viewPager.setAdapter(adapter);
     }
 }

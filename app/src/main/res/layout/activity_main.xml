@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".activity.MainActivity">
 
     <include
@@ -12,17 +12,21 @@
 
     <android.support.design.widget.TabLayout
         android:id="@+id/tabs"
-        app:tabTextAppearance="@style/MyTabTextAppearance"
-        android:layout_below="@+id/app_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        app:tabMode="scrollable"/>
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentBottom="true"
+        android:background="?attr/colorPrimary"
+        app:tabMode="fixed"
+        app:tabSelectedTextColor="@color/colorAccent"
+        app:tabTextAppearance="@style/MyTabTextAppearance"
+        app:tabTextColor="@color/white_trans" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
-        android:layout_below="@+id/tabs"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"  />
+        android:layout_above="@+id/tabs"
+        android:layout_below="@+id/app_toolbar"
+        android:background="@color/light_gray" />
 
 </RelativeLayout>
