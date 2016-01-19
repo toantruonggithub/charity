@@ -5,10 +5,10 @@
   <string name="action_help">Help</string>
 
   <array name="tab_titles">
-    <item>Tin mới</item>
-    <item>Tin quan tâm</item>
-    <item>Nhà tài trợ</item>
-    <item>Thông báo</item>
-    <item>Cài đặt</item>
+    <item>New feed</item>
+    <item>Bookmark</item>
+    <item>Sponsor</item>
+    <item>Notification</item>
+    <item>Setting</item>
   </array>
 </resources>

@@ -1,10 +1,13 @@
 package com.sgulab.charity.object;
 
-public class Feed {
+import java.util.List;
 
-    public Feed(String title) {
-        this.title = title;
-    }
+public class Feed {
+    private String title;
+    private String photo;
+    private String content;
+    private boolean isBookmarked;
+    private List<String> sponsors;
 
     public String getTitle() {
         return title;
@@ -14,5 +17,35 @@ public class Feed {
         this.title = title;
     }
 
-    private String title;
+    public String getPhotoUrl() {
+        return photo;
+    }
+
+    public void setPhotoUrl(String photoUrl) {
+        this.photo = photoUrl;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public boolean isBookmarked() {
+        return isBookmarked;
+    }
+
+    public void setIsBookmarked(boolean isBookmarked) {
+        this.isBookmarked = isBookmarked;
+    }
+
+    public List<String> getSponsors() {
+        return sponsors;
+    }
+
+    public void setSponsors(List<String> sponsors) {
+        this.sponsors = sponsors;
+    }
 }
