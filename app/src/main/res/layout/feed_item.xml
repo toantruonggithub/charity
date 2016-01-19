@@ -8,15 +8,96 @@
     android:layout_margin="2dp"
     card_view:cardCornerRadius="4dp">
 
-    <RelativeLayout
-        android:padding="10dp"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/light_gray"
+            android:padding="1dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/feed_icon_size"
+                android:layout_height="@dimen/feed_icon_size"
+                android:background="@color/white_trans"
+                android:src="@drawable/app_icon" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/feed_icon_size">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/feed_title_text_size"
+                    android:text="Sample title to make amazing feed"
+                    android:layout_marginLeft="@dimen/layout_padding_small"
+                    android:layout_marginTop="@dimen/layout_padding_small"
+                    android:layout_marginBottom="@dimen/layout_padding_small"
+                    android:layout_toLeftOf="@+id/toggle_bookmark"
+                    android:layout_toStartOf="@+id/toggle_bookmark" />
+
+                <ToggleButton
+                    android:id="@+id/toggle_bookmark"
+                    android:layout_width="@dimen/bookmark_icon_size"
+                    android:layout_height="@dimen/bookmark_icon_size"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:textOff=""
+                    android:textOn=""
+                    android:background="@drawable/bookmark_icon"/>
+            </RelativeLayout>
+        </LinearLayout>
 
         <TextView
-            android:textColor="@color/colorPrimary"
             android:id="@+id/feed_title"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-    </RelativeLayout>
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="@dimen/feed_footer_size">
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_more_horiz_white_48dp"
+                android:scaleType="centerInside"
+                android:layout_height="wrap_content" />
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_toys_white_48dp"
+                android:scaleType="centerInside"
+                android:layout_height="wrap_content" />
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_toys_white_48dp"
+                android:scaleType="centerInside"
+                android:layout_height="wrap_content" />
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_toys_white_48dp"
+                android:scaleType="centerInside"
+                android:layout_height="wrap_content" />
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_toys_white_48dp"
+                android:scaleType="centerInside"
+                android:layout_height="wrap_content" />
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_toys_white_48dp"
+                android:scaleType="centerInside"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
 </android.support.v7.widget.CardView>

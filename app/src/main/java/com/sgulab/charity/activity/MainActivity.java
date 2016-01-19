@@ -16,18 +16,22 @@ import com.sgulab.charity.fragment.FragmentC;
 import com.sgulab.charity.fragment.FragmentD;
 import com.sgulab.charity.fragment.FragmentE;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements ViewPager.OnPageChangeListener {
 
     private ViewPager viewPager;
     private TabLayout tabLayout;
+    private Toolbar toolbar;
+    private TabsAdapter adapter;
 
     private int[] tabIcons = {
-            android.R.drawable.ic_menu_add,
-            android.R.drawable.ic_menu_agenda,
-            android.R.drawable.ic_menu_call,
-            android.R.drawable.ic_menu_gallery,
-            android.R.drawable.ic_menu_view,
+            R.drawable.tab_icon_1,
+            R.drawable.tab_icon_2,
+            R.drawable.tab_icon_3,
+            R.drawable.tab_icon_4,
+            R.drawable.tab_icon_5,
     };
+
+    private String[] tabTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +39,7 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
 
         // Add toolbar
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         /*toolbar.setLogo(R.drawable.app_icon);*/
@@ -46,6 +50,11 @@ public class MainActivity extends BaseActivity {
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
         setupTabIcons();
+
+        tabTitle = getResources().getStringArray(R.array.tab_titles);
+
+        viewPager.addOnPageChangeListener(this);
+        toolbar.setTitle(tabTitle[0]);
     }
 
     private void setupTabIcons() {
@@ -59,7 +68,7 @@ public class MainActivity extends BaseActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
-        return true;
+        return false;
     }
 
     @Override
@@ -74,12 +83,27 @@ public class MainActivity extends BaseActivity {
     }
 
     private void setupViewPager(ViewPager viewPager) {
-        TabsAdapter adapter = new TabsAdapter(getSupportFragmentManager());
-        adapter.addFrag(new FragmentA(), "Bài đăng mới");
-        adapter.addFrag(new FragmentB(), "Bài đăng được quan tâm");
-        adapter.addFrag(new FragmentC(), "Nhà tài trợ");
-        adapter.addFrag(new FragmentD(), "Thông tin");
-        adapter.addFrag(new FragmentD(), "Cài đặt");
+        adapter = new TabsAdapter(getSupportFragmentManager());
+        adapter.addFrag(new FragmentA(), null);
+        adapter.addFrag(new FragmentB(), null);
+        adapter.addFrag(new FragmentC(), null);
+        adapter.addFrag(new FragmentD(), null);
+        adapter.addFrag(new FragmentD(), null);
         viewPager.setAdapter(adapter);
+    }
+
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+        toolbar.setTitle(tabTitle[position]);
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+
     }
 }
